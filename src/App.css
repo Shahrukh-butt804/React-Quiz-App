@@ -7,11 +7,17 @@ body{
     background-image: linear-gradient(pink,rgb(153, 19, 153));
 }
 
+#spinner{
+    width: 20vh;
+    margin-top: 50vh;
+    margin-left: 100vh;
+}
+
 .container{
     width: 600px;
     margin: auto;
     margin-top: 30px;
-    background: wheat;
+    background: whitesmoke;
     color: black;
     display: flex;
     flex-direction: column;
@@ -80,3 +86,10 @@ span h1{
     margin-bottom: 2%;
     margin-top: -2%;
 }
+
+@media (max-width: 570px) { 
+    body{ 
+        height: auto;
+    }
+}
+  

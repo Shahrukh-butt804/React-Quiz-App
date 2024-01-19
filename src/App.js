@@ -103,7 +103,7 @@ const restart= ()=>{
         onLoaderFinished={() => setProgress(0)}
       />
       {isLoading ?
-        <div class="spinner-border text-danger" role="status">
+        <div class="spinner-border text-danger" id='spinner' role="status">
           <span class="sr-only"></span>
         </div>
         :
