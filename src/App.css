@@ -89,7 +89,7 @@ span h1{
 
 @media (max-width: 570px) { 
     body{ 
-        height: auto;
+        height: 210vh;
     }
 }
   
