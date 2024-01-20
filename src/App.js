@@ -26,7 +26,7 @@ function App() {
     fetch("https://the-trivia-api.com/v2/questions/")
       .then((result) => result.json())
       .then((data) => {
-        console.log("data :", data);
+     
         setQuestion(data);
         setloader(false);
       });
@@ -49,7 +49,7 @@ function App() {
   };
 
   const shuffledOptopns = () => {
-    console.log(Questions, "-> questions");
+    // console.log(Questions, "-> questions");
     if (Questions) {
       setOptions(
         [
