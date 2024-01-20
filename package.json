@@ -1,5 +1,5 @@
 {
-  "homepage":"https://shahrukh-butt804/React-Quiz-App", 
+  "homepage": "https://shahrukh-butt804/React-Quiz-App",
   "name": "quiz-app",
   "version": "0.1.0",
   "private": true,
@@ -13,12 +13,13 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-top-loading-bar": "^2.3.1",
+    "sweetalert2": "^11.10.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",   
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

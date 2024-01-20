@@ -62,19 +62,25 @@ function App() {
   };
 
   const next = () => {
-    if (index < Questions.length - 1) {
-      setindex(index + 1);
-      const allElements = document.querySelectorAll("li");
-      allElements.forEach((element) => {
-        element.classList.remove("correct");
-        element.classList.remove("galat");
-      });
-      setclicked(false);
-    } else {
-      setfinished(true);
-    }
-    setProgress(progress + 10);
-  };
+
+    if (isclicked) {
+          if (index < Questions.length - 1) {
+            setindex(index + 1);
+            const allElements = document.querySelectorAll("li");
+            allElements.forEach((element) => {
+              element.classList.remove("correct");
+              element.classList.remove("galat");
+            });
+            setclicked(false);
+          } else {
+            setfinished(true);
+          }
+          setProgress(progress + 10);
+        }
+        
+        };
+
+
 
   const restart = () => {
     setindex(0);
