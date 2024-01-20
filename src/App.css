@@ -93,7 +93,8 @@ span h1{
         height: 210vh;
     }
     .container{
-        width: 410px;
+        width: 350px;
+        margin: 10px;
 
     }
 }
