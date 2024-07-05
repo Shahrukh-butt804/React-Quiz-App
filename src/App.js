@@ -12,6 +12,7 @@ function App() {
   let [score, setscore] = useState(0);
   let [isFinished, setfinished] = useState(false);
   let [isclicked, setclicked] = useState(false);
+  let [showButton, setShowButton] = useState(false);
   let [progress, setProgress] = useState(0);
   let [options, setOptions] = useState([]);
 
@@ -26,7 +27,6 @@ function App() {
     fetch("https://the-trivia-api.com/v2/questions/")
       .then((result) => result.json())
       .then((data) => {
-     
         setQuestion(data);
         setloader(false);
       });
@@ -43,7 +43,7 @@ function App() {
       } else {
         e.target.classList.add("galat");
       }
-
+      setShowButton(true)
       setclicked(true);
     }
   };
@@ -56,29 +56,30 @@ function App() {
           ...Questions[index]?.incorrectAnswers,
           Questions[index]?.correctAnswer,
         ].sort(() => Math.random() - 0.5)
-        );
-        console.log(Questions[index].correctAnswer)
+      );
+      console.log(Questions[index].correctAnswer)
     }
   };
 
   const next = () => {
 
     if (isclicked) {
-          if (index < Questions.length - 1) {
-            setindex(index + 1);
-            const allElements = document.querySelectorAll("li");
-            allElements.forEach((element) => {
-              element.classList.remove("correct");
-              element.classList.remove("galat");
-            });
-            setclicked(false);
-          } else {
-            setfinished(true);
-          }
-          setProgress(progress + 10);
-        }
-        
-        };
+      if (index < Questions.length - 1) {
+        setindex(index + 1);
+        const allElements = document.querySelectorAll("li");
+        allElements.forEach((element) => {
+          element.classList.remove("correct");
+          element.classList.remove("galat");
+        });
+        setclicked(false);
+      } else {
+        setfinished(true);
+      }
+      setProgress(progress + 10);
+    }
+    setShowButton(false)
+
+  };
 
 
 
@@ -97,8 +98,11 @@ function App() {
         onLoaderFinished={() => setProgress(0)}
       />
       {isLoading ? (
-        <div class="spinner-border text-danger" id="spinner" role="status">
-          <span class="sr-only"></span>
+        <div className="d-flex justify-content-center align-items-center vh-100">
+
+          <div class="spinner-border" style={{width: "3rem", height: "3rem"}} role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
         </div>
       ) : (
         <div className="container">
@@ -131,7 +135,7 @@ function App() {
                   </li>
                 ))}
               </ul>
-              <button onClick={next}>NEXT</button>
+              <button onClick={next} disabled={!showButton} >NEXT</button>
               <div className="index">
                 {index + 1} of {Questions.length} Question
               </div>
